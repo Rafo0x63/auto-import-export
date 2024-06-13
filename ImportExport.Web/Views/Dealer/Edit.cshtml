@@ -1,0 +1,97 @@
+﻿@model ImportExport.Model.Dealer
+
+@{
+    ViewData["Title"] = "Edit Dealer";
+    var cars = ViewBag.Cars as List<ImportExport.Model.Car>;
+}
+
+<h1>Edit Dealer</h1>
+
+<h4>Dealer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationID" class="control-label">Location</label>
+                <select asp-for="LocationID" class="form-control" asp-items="ViewBag.LocationID"></select>
+                <span asp-validation-for="LocationID" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>Cars</h4>
+        <ul class="list-group">
+            @foreach (var car in Model.Cars)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    @car.CarName
+                    <form asp-action="RemoveCar" method="post" class="mb-0">
+                        <input type="hidden" name="dealerId" value="@Model.ID" />
+                        <input type="hidden" name="carId" value="@car.ID" />
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4>Add Car</h4>
+        <ul class="list-group">
+            @if (cars != null && cars.Any())
+            {
+                @foreach (var car in cars)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        @car.CarName
+                        <form asp-action="AddCar" method="post" class="mb-0">
+                            <input type="hidden" name="dealerId" value="@Model.ID" />
+                            <input type="hidden" name="carId" value="@car.ID" />
+                            <button type="submit" class="btn btn-success btn-sm">Add Car</button>
+                        </form>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="list-group-item">
+                    All available cars are currently assigned to dealers.
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

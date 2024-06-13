@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ImportExport.Model.Car>
+
+@{
+    ViewData["Title"] = "Car List";
+}
+
+<div class="row">
+    <div class="col">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+    <div class="col d-flex justify-content-end">
+        <a asp-action="Create"><button class="btn btn-primary">Add new</button></a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Make and Model</th>
+            <th>Year</th>
+            <th>Mileage</th>
+            <th>Dealer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td><a asp-action="Details" asp-route-id="@car.ID">@car.Make @car.Model</a></td>
+                <td>@car.Year</td>
+                <td>@car.Mileage</td>
+                <td><a asp-controller="Dealer" asp-action="Details" asp-route-id="@car.Dealer?.ID">@car.Dealer?.Name</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

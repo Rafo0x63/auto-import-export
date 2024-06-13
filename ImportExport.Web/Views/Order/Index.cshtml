@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ImportExport.Model.Order>
+
+@{
+    ViewData["Title"] = "Order Index";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Dealer</th>
+            <th>Order Date</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Car.Make @order.Car.Model (@order.Car.Year)</td>
+                <td>@order.Dealer.Name</td> 
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>€@order.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

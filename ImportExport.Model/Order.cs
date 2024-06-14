@@ -12,12 +12,8 @@ namespace ImportExport.Model
     {
         [Key]
         public int ID { get; set; }
-        [ForeignKey(nameof(Car))]
-        public int CarID { get; set; }
-        public Car Car { get; set; }
-        [ForeignKey(nameof(Dealer))]
-        public int DealerID { get; set; }
-        public Dealer Dealer { get; set; }
+        public string CarInfo { get; set; }
+        public string DealerName { get; set; }
         public DateTime OrderDate { get; set; }
         public int Price { get; set; }
     }

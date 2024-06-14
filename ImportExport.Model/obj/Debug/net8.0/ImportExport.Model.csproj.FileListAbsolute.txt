@@ -22,3 +22,4 @@ C:\Users\anton\source\repos\Projekt\ImportExport.Model\obj\Debug\net8.0\ImportEx
 C:\Users\anton\source\repos\Projekt\ImportExport.Model\obj\Debug\net8.0\refint\ImportExport.Model.dll
 C:\Users\anton\source\repos\Projekt\ImportExport.Model\obj\Debug\net8.0\ImportExport.Model.pdb
 C:\Users\anton\source\repos\Projekt\ImportExport.Model\obj\Debug\net8.0\ref\ImportExport.Model.dll
+C:\Users\anton\source\repos\Projekt\ImportExport.Model\obj\Debug\net8.0\ImportExport.Model.sourcelink.json

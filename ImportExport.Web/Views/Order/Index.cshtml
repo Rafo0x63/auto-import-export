@@ -19,8 +19,8 @@
         @foreach (var order in Model)
         {
             <tr>
-                <td>@order.Car.Make @order.Car.Model (@order.Car.Year)</td>
-                <td>@order.Dealer.Name</td> 
+                <td>@order.CarInfo</td>
+                <td>@order.DealerName</td> 
                 <td>@order.OrderDate.ToShortDateString()</td>
                 <td>€@order.Price</td>
             </tr>

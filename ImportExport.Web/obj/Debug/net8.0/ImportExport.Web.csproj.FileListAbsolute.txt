@@ -594,3 +594,4 @@ C:\Users\anton\source\repos\Projekt\ImportExport.Web\obj\Debug\net8.0\refint\Imp
 C:\Users\anton\source\repos\Projekt\ImportExport.Web\obj\Debug\net8.0\ImportExport.Web.pdb
 C:\Users\anton\source\repos\Projekt\ImportExport.Web\obj\Debug\net8.0\ImportExport.Web.genruntimeconfig.cache
 C:\Users\anton\source\repos\Projekt\ImportExport.Web\obj\Debug\net8.0\ref\ImportExport.Web.dll
+C:\Users\anton\source\repos\Projekt\ImportExport.Web\obj\Debug\net8.0\ImportExport.Web.sourcelink.json

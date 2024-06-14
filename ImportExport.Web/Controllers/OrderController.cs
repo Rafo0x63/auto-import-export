@@ -3,6 +3,7 @@ using ImportExport.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace ImportExport.Web.Controllers
 {
@@ -17,40 +18,33 @@ namespace ImportExport.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var orders = await _context.Orders.Include(c => c.Car).Include(d => d.Dealer).ToListAsync();
+            var orders = await _context.Orders.ToListAsync();
             return View(orders);
-        }
-
-        public IActionResult Create()
-        {
-            
-            return View();
         }
 
         public async Task<IActionResult> Create(int carId)
         {
-            // Find the car by carId
-            var car = await _context.Cars.FindAsync(carId);
+            var car = _context.Cars.Include(d => d.Dealer).Where(c => c.ID == carId).FirstOrDefault();
             if (car == null)
             {
-                return NotFound(); // Handle not found error
+                return NotFound();
             }
 
-            // Create a new Order
             var order = new Order
             {
-                Car = car,
-                OrderDate = DateTime.Now, // Set order date to current date and time
-                DealerID = car.DealerID.Value,
+                CarInfo = $"{car.CarName} ({car.Year})",
+                OrderDate = DateTime.Now,
+                DealerName = car.Dealer.Name,
                 Price = car.Price
             };
 
-            // Add the order to the context and save changes
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
-            // Redirect to a success page or another action
-            return RedirectToAction(nameof(Index)); // Assuming you have an Index action in your OrderController
+            _context.Cars.Remove(car);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }

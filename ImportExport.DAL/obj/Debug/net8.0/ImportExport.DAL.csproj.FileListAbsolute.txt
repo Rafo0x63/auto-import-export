@@ -28,3 +28,4 @@ C:\Users\anton\source\repos\Projekt\ImportExport.DAL\obj\Debug\net8.0\ImportExpo
 C:\Users\anton\source\repos\Projekt\ImportExport.DAL\obj\Debug\net8.0\refint\ImportExport.DAL.dll
 C:\Users\anton\source\repos\Projekt\ImportExport.DAL\obj\Debug\net8.0\ImportExport.DAL.pdb
 C:\Users\anton\source\repos\Projekt\ImportExport.DAL\obj\Debug\net8.0\ref\ImportExport.DAL.dll
+C:\Users\anton\source\repos\Projekt\ImportExport.DAL\obj\Debug\net8.0\ImportExport.DAL.sourcelink.json

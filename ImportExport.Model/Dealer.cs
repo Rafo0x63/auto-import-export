@@ -14,7 +14,7 @@ namespace ImportExport.Model
         public int ID { get; set; }
         [ForeignKey(nameof(Location))]
         public int LocationID { get; set; }
-        public Location Location { get; set; }
+        public Location? Location { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }

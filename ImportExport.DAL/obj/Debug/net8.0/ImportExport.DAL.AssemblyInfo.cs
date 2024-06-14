@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImportExport.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95f0c60d92852f92364b5f36a5785b73cebc3377")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+854c9ebccbf0ecf3c75424e6296b845e54847a7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImportExport.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImportExport.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,6 +2,7 @@
 using ImportExport.Model;
 using ImportExport.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -81,12 +82,23 @@ public class DealerController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, [Bind("ID,LocationID,Name,Email,PhoneNumber")] Dealer dealer)
     {
         if (id != dealer.ID)
         {
             return NotFound();
+        }
+
+        foreach (var key in ModelState.Keys)
+        {
+            var state = ModelState[key];
+            if (state.ValidationState == ModelValidationState.Invalid)
+            {
+                foreach (var error in state.Errors)
+                {
+                    Console.WriteLine($"Property: {key}, Error: {error.ErrorMessage}");
+                }
+            }
         }
 
         if (ModelState.IsValid)
